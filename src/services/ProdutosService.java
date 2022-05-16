@@ -1,20 +1,25 @@
-package repository;
+package services;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import repository.ProdutoRepository;
 import exemplo.Produto;
 
-public class ProdutoRepository {
-	static Map<String, Produto> repositorio;
+public class ProdutosService {
+	ProdutoRepository repositorioProdutos;
 	
-	public ProdutoRepository() {
-		this.repositorio = new HashMap<String, Produto>();
+	public ProdutosService() {
+		this.repositorioProdutos = new ProdutoRepository();
 	}
-	 
+	
+	public List<Produto> listProdsByName(String name){
+		List<Produto> produtos = repositorioProdutos.getAll();
+		
+	}
+	
 	public static void addProduto(Produto produto) {
 		repositorio.put(produto.getId(), produto);
 	}
